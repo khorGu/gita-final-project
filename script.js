@@ -6,6 +6,30 @@ var coinData = {
   method: "GET",
   headers: {},
 };
+
+$.ajax(coinData).done((response) => {
+  const btc = response[0];
+  const eth = response[1];
+  const bnb = response[2];
+  const sol = response[5];
+  const dot = response[7];
+  // Assign Values
+  $("#btc-name").text(btc.name);
+  $("#btc-price").text("$ " + btc.current_price);
+  $("#btc-img").attr("src", btc.image);
+  $("#eth-name").text(eth.name);
+  $("#eth-price").text("$ " + eth.current_price);
+  $("#eth-img").attr("src", eth.image);
+  $("#bnb-name").text(bnb.name);
+  $("#bnb-price").text("$ " + bnb.current_price);
+  $("#bnb-img").attr("src", bnb.image);
+  $("#sol-name").text(sol.name);
+  $("#sol-price").text("$ " + sol.current_price);
+  $("#sol-img").attr("src", sol.image);
+  $("#dot-name").text(dot.name);
+  $("#dot-price").text("$ " + dot.current_price);
+  $("#dot-img").attr("src", dot.image);
+});
 // Fetch Exchanges
 
 var exchangesData = {
@@ -31,30 +55,6 @@ $.ajax(exchangesData).done((response) => {
   $("#coinbase-img").attr("src", coinbase.image);
   $("#coinbase-name").text(coinbase.name);
   $("#coinbase-score").text("Trust Score: " + coinbase.trust_score);
-});
-
-$.ajax(coinData).done((response) => {
-  const btc = response[0];
-  const eth = response[1];
-  const bnb = response[2];
-  const sol = response[5];
-  const dot = response[7];
-  // Assign Values
-  $("#btc-name").text(btc.name);
-  $("#btc-price").text("$ " + btc.current_price);
-  $("#btc-img").attr("src", btc.image);
-  $("#eth-name").text(eth.name);
-  $("#eth-price").text("$ " + eth.current_price);
-  $("#eth-img").attr("src", eth.image);
-  $("#bnb-name").text(bnb.name);
-  $("#bnb-price").text("$ " + bnb.current_price);
-  $("#bnb-img").attr("src", bnb.image);
-  $("#sol-name").text(sol.name);
-  $("#sol-price").text("$ " + sol.current_price);
-  $("#sol-img").attr("src", sol.image);
-  $("#dot-name").text(dot.name);
-  $("#dot-price").text("$ " + dot.current_price);
-  $("#dot-img").attr("src", dot.image);
 });
 
 const menuBars = document.getElementById("menu-bars");
